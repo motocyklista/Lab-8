@@ -34,15 +34,15 @@ Po kompilacji uruchom plik wykonywalny:
 strlen.exe
 ```
 
-Program poprosi o podanie zdania (maksymalnie 100 znaków). Następnie wypisze długość wczytanego napisu:
+1. Program poprosi o podanie zdania (maksymalnie 100 znaków). Następnie wypisze długość wczytanego napisu:
 
 Prosze podac zdanie:
 
-Po wpisaniu tekstu i naciśnięciu Enter, program wypisze komunikat:
+2. Po wpisaniu tekstu i naciśnięciu Enter, program wypisze komunikat:
 
 Dlugosc Twojego tekstu to: X znakow.
 
-gdzie X to liczba znaków w zdaniu (bez znaku końcowego \0 i ewentualnego \n).
+* gdzie X to liczba znaków w zdaniu (bez znaku końcowego \0 i ewentualnego \n).
 
 ---
 
