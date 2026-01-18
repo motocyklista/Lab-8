@@ -1,71 +1,98 @@
-# Program: "Transpozycja macierzy"
-Program napisany w języku C, który wczytuje macierz prostokątną (liczbę wierszy i kolumn podaje użytkownik) oraz jej elementy, a następnie wypisuje macierz transponowaną. Program obsługuje błędy danych wejściowych, takich jak ujemna liczba wierszy/kolumn lub niepoprawne dane.
+# Program: "Refaktoryzacja Aplikacji Bankowej ("The Ugly Main")"
+Program w języku C, który symuluje podstawowe operacje bankowe na 100 kontach. Użytkownik może wpłacać środki (DEPOSIT), wypłacać środki (WITHDRAW) lub sprawdzać saldo (SHOW) dla wybranego konta. Pragram z homework z lab 6 zmodyfikowany o funkcje poza main.
 
 ---
 
 ## Informacje techniczne
-- **Język:** C  
-- **Edytor:** Microsoft Visual Studio Code  
-- **Kompilator:** Clang (`clang -Wall`)  
-- **System:** Windows  
+
+* **Język:** C
+* **Edytor:** Microsoft Visual Studio Code
+* **Kompilator:** Clang (`clang -Wall`)
+* **System:** Windows
 
 > 💡 Program skompilowany przy użyciu kompilatora Clang. Korzystałem z edytora MS Visual Studio Code.
 
 ---
 
 ## Kompilacja
+
 Aby skompilować program, w terminalu uruchom:
 
 ```bash
-clang -Wall Lab7_2.c
-````
-
+clang -Wall bank.c
+```
 
 ---
+
 ## Uruchomienie programu
+
 Po kompilacji uruchom plik wykonywalny:
 
 ```bash
-Lab7_2.exe
+bank.exe
 ```
-Program poprosi o podanie tekstu i zakończenie go enterem. Następnie zwróci wynik:
+
+Program poprosi o podanie poleceń numerycznych:
+
+* `0` – zakończenie programu
+* `1` – wpłata (`DEPOSIT`)
+* `2` – wypłata (`WITHDRAW`)
+* `3` – wyświetlenie salda (`SHOW`)
+
+Dla poleceń 1 i 2 należy podać numer konta (0–99) oraz kwotę (≥0).
+Dla polecenia 3 należy podać numer konta.
+
+Program wypisuje komunikaty o powodzeniu operacji lub błędach, np. za mało środków lub niepoprawny numer konta.
 
 ---
 
 ### Przykłady działania
 
 ```
-C:\Users\X\Desktop\homework>Lab7_2.exe
-2 3
-1 2 3
-4 5 6
-1 4
-2 5
-3 6
+C:\Users\X\Desktop\homework>bank.exe
+Podaj polecenie: 1
+Podaj numer konta (0-99) i kwote: 99 50
+DEPOSIT OK. Konto 99 nowe saldo: 50.00
 ```
-```
-C:\Users\X\Desktop\homework>Lab7_2.exe
--2 6
-BLAD DANYCH WEJSCIOWYCH
 
+```
+C:\Users\X\Desktop\homework>bank.exe
+Podaj polecenie: 2
+Podaj numer konta (0-99) i kwote: 99 30
+WITHDRAW OK. Konto 99 nowe saldo: 20.00
+```
+
+```
+C:\Users\X\Desktop\homework>bank.exe
+Podaj polecenie: 3 99
+Podaj numer konta (0-99): SHOW: konto 99 saldo = 20.00
+```
+
+```
+C:\Users\X\Desktop\homework>bank.exe
+Podaj polecenie: 0
+Koniec programu.
 ```
 
 ---
 
 ## Działanie programu
 
-1. Program prosi o podanie liczby wierszy (R) i kolumn (C).
-2. Sprawdza poprawność danych wejściowych (R >= 1, C >= 1).
-3. Tworzy macierz o zmiennym rozmiarze (VLA) matrix[R][C].
-4. Wczytuje elementy macierzy wierszami. Jeśli dane wejściowe są niepoprawne, wyświetla komunikat "BLAD DANYCH WEJSCIOWYCH".
-5. Wypisuje macierz transponowaną: elementy wiersza transponowanego oddzielone spacją, każdy wiersz w nowej linii.
+1. Program prosi o podanie numeru polecenia (`0-3`).
+2. W zależności od polecenia:
+
+   * `1` – wczytuje numer konta i kwotę, dokonuje wpłaty.
+   * `2` – wczytuje numer konta i kwotę, dokonuje wypłaty jeśli środki wystarczą.
+   * `3` – wczytuje numer konta i wyświetla saldo.
+3. Program sprawdza poprawność numeru konta oraz kwoty.
+4. Po każdej operacji wypisuje komunikat o wyniku.
+5. Pętla powtarza się do momentu wybrania polecenia `0`, które kończy program.
 
 ---
+
 ## 👤 Autor
 
 * **Imię / Pseudonim:** Piotr
 * **Rok:** 2025
 * **Środowisko:** Visual Studio Code + Clang
-
-```
 
