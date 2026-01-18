@@ -18,8 +18,8 @@ Program w języku C, który symuluje podstawowe operacje bankowe na 100 kontach.
 
 Aby skompilować program, w terminalu uruchom:
 
-```bash
-clang -Wall bank.c
+```bash 
+clang -Wall bank.c -o bank.exe
 ```
 
 ---
