@@ -36,11 +36,11 @@ strlen.exe
 
 1. Program poprosi o podanie zdania (maksymalnie 100 znaków). Następnie wypisze długość wczytanego napisu:
 
-Prosze podac zdanie:
+   Prosze podac zdanie:
 
 2. Po wpisaniu tekstu i naciśnięciu Enter, program wypisze komunikat:
 
-Dlugosc Twojego tekstu to: X znakow.
+   Dlugosc Twojego tekstu to: X znakow.
 
 * gdzie X to liczba znaków w zdaniu (bez znaku końcowego \0 i ewentualnego \n).
 
